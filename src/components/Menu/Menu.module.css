@@ -7,31 +7,51 @@
     margin: 0;
 
     background-color: #E8E8E8;
+
+    --scale-factor: calc(100cqw / 800);
+    font-size: calc(16 * var(--scale-factor));
 }
 
 .ChannelGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    gap: 0.5rem;
-    padding: 0.5rem;
-    padding-top: 2rem;
+    gap: 0.5em;
+    padding: 0.5em;
+    padding-top: 2em;
     width: fit-content;
     margin: auto;
 }
 
 .Channel {
-    width: 9rem;
-    height: 5rem;
+    width: 9em;
+    height: 5em;
     background-color: black;
-    border-radius: 1rem;
-    border: 0.125rem solid #C3C3C3;
+    border-radius: 1em;
+    border: 0.125em solid #C3C3C3;
     
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+
+    /* TODO: Absolutely not accurate */
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.Channel p {
+    font-size: 1.25em;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    padding: 0.5em;
+}
+
+.Channel:hover {
+    /* TODO: Absolutely not accurate */
+    background-color: #5DBADB;
+    color: #000;
+    cursor: pointer;
 }
 
 .InfoBar {
@@ -41,8 +61,8 @@
     width: 100%;
     height: 25%;
     background-color: #D6D7DD;
-    border-top: 0.25rem solid #5DBADB;
+    border-top: 0.25em solid #5DBADB;
 
     /* Inner box shadow */
-    box-shadow: inset 0 0 1.5rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 1.5em rgba(0, 0, 0, 0.5);
 }
