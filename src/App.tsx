@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import logo from './logo.svg';
+import logo from './assets/uii.svg';
 import styles from './App.module.css';
 
 const App: Component = () => {
