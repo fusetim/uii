@@ -2,24 +2,15 @@ import type { Component } from 'solid-js';
 
 import logo from './assets/uii.svg';
 import styles from './App.module.css';
+import { Menu } from './components/Menu/Menu';
 
 const App: Component = () => {
   return (
     <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+      <h1 class={styles.welcome}>Welcome to the Uii Menu!</h1>
+      <main class={styles.uiiContainer}>
+        <Menu></Menu>
+      </main>
     </div>
   );
 };
