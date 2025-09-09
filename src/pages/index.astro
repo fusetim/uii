@@ -1,16 +1,20 @@
 ---
+import BasePage from "@layouts/BasePage.astro";
+import type { BaseHeadProps } from "@layouts/BaseHead.astro";
+import UiiFooter from "@components/UiiFooter/UiiFooter.astro";
 
+const head: BaseHeadProps = {
+	title: "FuseTim's Blog",
+	overrideTitle: true,
+	description:
+		"FuseTim is an independant developer, currently studying Computer Sciences at TELECOM Nancy, in France. Always curious, he loves to explore all fields related to computer sciences (robotics, embedded systems, cyber security, web dev, distributed apps,...).",
+};
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BasePage {head}>
+	<main>
+		Hello
+	</main>
+	<UiiFooter>
+	</UiiFooter>
+</BasePage>

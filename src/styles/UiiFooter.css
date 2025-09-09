@@ -1,0 +1,21 @@
+#uii-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 96px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#uii-footer > div {
+    background-color: aqua;
+    flex: 1;
+    height: 96px;
+}
+
+#uii-footer-part1,
+#uii-footer-part5 {
+    background-color: red;
+    width: 128px;
+}

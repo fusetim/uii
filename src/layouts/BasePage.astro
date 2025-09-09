@@ -1,0 +1,19 @@
+---
+import BaseHead, { type BaseHeadProps } from "./BaseHead.astro";
+import "@styles/normalize.css";
+import "@styles/BasePage.css"
+
+interface BasePageProps {
+    head: BaseHeadProps;
+};
+
+const props: BasePageProps = Astro.props as BasePageProps;
+---
+
+<!doctype html>
+<html lang="en">
+    <BaseHead {...props.head}></BaseHead>
+    <body>
+        <slot/>
+    </body>
+</html>
