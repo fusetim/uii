@@ -6,16 +6,128 @@
 
     display: flex;
     flex-direction: row;
+
+    --footer-pane-color: #EAF4FA;
+    --footer-border-color: #57C6F0;
 }
 
 #uii-footer > div {
-    background-color: aqua;
-    flex: 1;
     height: 96px;
+    position: relative;
+    z-index: 0;
 }
 
-#uii-footer-part1,
-#uii-footer-part5 {
-    background-color: red;
-    width: 128px;
+#uii-footer > div > .pane,
+#uii-footer > div > .border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#uii-footer > div > .border {
+    z-index: 1;
+}
+
+#uii-footer > div > .pane {
+    z-index: 2;
+}
+
+#uii-footer #uii-footer-part1,
+#uii-footer #uii-footer-part5 {
+    width: 80px;
+}
+
+#uii-footer #uii-footer-part1 > .border,
+#uii-footer #uii-footer-part5 > .border {
+    background-color: var(--footer-border-color);
+    /* This part must resize, therfore we cant use CSS path */
+    height: 4px;
+}
+
+#uii-footer #uii-footer-part1 > .pane,
+#uii-footer #uii-footer-part5 > .pane {
+    background-color: var(--footer-pane-color);
+    /*Depends on the pane size - 128x96px as ref*/
+    margin-top: 4px;
+    height: calc(100% - 4px);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#uii-footer #uii-footer-part1 > .pane {
+    flex-direction: row;
+}
+
+#uii-footer #uii-footer-part5 > .pane {
+    flex-direction: row-reverse;
+}
+
+#uii-footer #uii-footer-part2,
+#uii-footer #uii-footer-part4 {
+    width: 48px;
+    flex-shrink: 0;
+}
+
+#uii-footer #uii-footer-part2 > .border {
+    background-color: var(--footer-border-color);
+    /*Depends on the pane size - 128x96px as ref*/
+    clip-path: path("M 0 0 C 24 0 24 20 48 20 V 108 H 0 Z");
+}
+
+#uii-footer #uii-footer-part2 > .pane {
+    background-color: var(--footer-pane-color);
+    /*Depends on the pane size - 128x96px as ref*/
+    clip-path: path("M 0 4 C 24 4 24 24 48 24 V 104 H 0 Z");
+    padding-top: 4px;
+}
+
+#uii-footer #uii-footer-part4 > .border {
+    background-color: var(--footer-border-color);
+    /*Depends on the pane size - 128x96px as ref*/
+    clip-path: path("M 48 0 C 24 0 24 20 0 20 V 108 H 48 Z");
+}
+
+#uii-footer #uii-footer-part4 > .pane {
+    background-color: var(--footer-pane-color);
+    /*Depends on the pane size - 128x96px as ref*/
+    clip-path: path("M 48 4 C 24 4 24 24 0 24 V 104 H 48 Z");
+    padding-top: 4px;
+}
+
+#uii-footer #uii-footer-part3 {
+    flex: 128px 1 1;
+}
+
+#uii-footer #uii-footer-part3 > .border {
+    background-color: var(--footer-border-color);
+    /* This part must resize, therfore we cant use CSS path */
+    margin-top: 20px;
+    height: 4px;
+}
+
+#uii-footer #uii-footer-part3 > .pane {
+    background-color: var(--footer-pane-color);
+    /* This part must resize, therfore we cant use CSS path */
+    margin-top: 24px;
+    height: calc(100% - 24px);
+}
+
+#uii-footer .button {
+    border-radius: 999px;
+    padding: 12px;
+    margin: 4px;
+    width: 64px;
+    height: 64px;
+
+    background-color: #8FD2FF;
+}
+
+#uii-footer .button > svg {
+    width: 100%;
+    height: 100%;
+    color: #45667c;
 }
