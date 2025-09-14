@@ -1,37 +1,103 @@
 ---
-import "@styles/UiiFooter.css"
+import "@styles/UiiFooter.css";
+import UiiClock from "./UiiClock.astro";
+
 import MdiHistory from "~icons/mdi/history.astro";
+import MdiGithub from "~icons/mdi/github.astro";
+const BASE_URL = import.meta.env.BASE_URL;
+
+export interface FooterProps {
+    returnHomeLink?: boolean;
+}
+
+const props: FooterProps = Astro.props as FooterProps;
+const returnHomeLink = props.returnHomeLink ?? false;
 ---
 
 <footer id="uii-footer">
     <div id="uii-footer-part1">
         <div class="border"></div>
-        <div class="pane">
-            <a class="button" href="https://github.com">
-                <MdiHistory></MdiHistory>
-            </a>
-        </div>
+        <div class="pane"></div>
     </div>
     <div id="uii-footer-part2">
         <div class="border"></div>
         <div class="pane">
+            <a class="button" href={returnHomeLink ? BASE_URL : BASE_URL + "changelog"} title="Changelogs">
+                <MdiHistory />
+            </a>
+            <button id="uii-sdcard" title="SD Card (just for fun!)">
+                <svg
+                    width="23"
+                    height="30"
+                    viewBox="0 0 23 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M2 0.5H19.1191C19.5398 0.500108 19.9432 0.676737 20.2334 0.987305C20.6296 1.41138 21.1627 1.97487 21.6338 2.44824C22.1419 2.95892 22.5 3.70068 22.5 4.36133V28C22.5 28.8284 21.8284 29.5 21 29.5H2C1.17157 29.5 0.5 28.8284 0.5 28V2C0.5 1.17157 1.17157 0.5 2 0.5Z"
+                        fill="var(--sdcard-color-light)"
+                        stroke="var(--sdcard-color-darker)"></path>
+                    <rect
+                        x="2"
+                        y="24"
+                        width="19"
+                        height="4"
+                        fill="var(--sdcard-color-darker)"></rect>
+                    <rect
+                        x="2"
+                        y="4"
+                        width="19"
+                        height="19"
+                        fill="var(--sdcard-color-lighter)"></rect>
+                    <path
+                        d="M7.95509 14.932C7.95509 15.1837 7.6009 15.2044 6.5866 15.1837C5.00881 15.1561 3.6854 14.9871 3.6854 14.9871L3.06619 16.8151C3.06619 16.8151 4.56832 16.9255 6.17122 16.9255C8.45741 16.9255 10.3411 17.0221 10.6856 15.4045C10.9304 14.2628 9.99978 13.7248 8.89211 13.373C8.14507 13.135 6.78302 12.8074 6.78302 12.5211C6.78302 12.1555 7.69749 12.1658 8.33183 12.1451C9.02413 12.1244 11.7064 12.121 11.7064 12.121L12.0477 11.0863C12.0477 11.0863 10.1189 11.0311 8.20303 11.1311C5.44351 11.2794 4.92831 11.9348 4.86391 12.5625C4.78019 13.3764 5.80414 13.9421 6.4256 14.1973C7.01808 14.4387 7.95509 14.6181 7.95509 14.932Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                    <path
+                        d="M15.3224 12.9936C15.3095 12.966 15.2934 12.9384 15.2773 12.9108L18.6036 12.0141C19.1317 12.29 19.5728 12.6453 19.8014 13.1005C20.0075 13.5006 19.9656 13.9145 19.7274 14.318C17.8243 16.8496 12.8752 16.8324 11.0881 16.9186L11.8642 14.5767C12.3375 14.5595 13.0201 14.487 13.4291 14.4008C13.8348 14.3146 14.1986 14.2008 14.4949 14.0662C14.7911 13.9317 15.023 13.78 15.1711 13.6179C15.316 13.4558 15.3868 13.2902 15.3578 13.1178C15.3514 13.0764 15.3385 13.035 15.3224 12.9936Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                    <path
+                        d="M17.8984 11.7037C17.7052 11.6174 17.4379 11.5105 17.2415 11.4553L14.8072 12.5073C14.8781 12.5452 14.9843 12.6315 15.0391 12.6694C15.0552 12.6832 15.068 12.6935 15.0841 12.7039L17.8984 11.7037Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                    <path
+                        d="M15.902 11.2139C15.4995 11.1518 15.1646 11.1242 14.9682 11.1173C14.1922 11.0966 13.8863 11.0794 13.0233 11.0828L12.6788 12.1244C12.8913 12.1313 12.9879 12.121 13.3453 12.1589C13.6738 12.1934 13.9765 12.2452 14.2437 12.321L15.902 11.2139Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                    <path
+                        d="M18.9803 16.1564H18.7485L18.6487 16.9289H18.5327L18.6358 16.1564H18.4039L18.42 16.046H18.9964L18.9803 16.1564Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                    <path
+                        d="M19.8336 16.9289H19.7241V16.2598L19.3925 16.9289L19.2508 16.2529H19.2476L19.0447 16.9289H18.9352L19.2089 16.046H19.3023L19.4279 16.6427L19.7241 16.046H19.8336V16.9289Z"
+                        fill="var(--sdcard-color-dark)"></path>
+                </svg>
+            </button>
         </div>
     </div>
     <div id="uii-footer-part3">
         <div class="border"></div>
         <div class="pane">
-            <p>Content</p>
+            <UiiClock />
         </div>
     </div>
     <div id="uii-footer-part4">
         <div class="border"></div>
         <div class="pane">
+            <a class="button" href="https://github.com/fusetim/uii">
+                <MdiGithub />
+            </a>
         </div>
     </div>
     <div id="uii-footer-part5">
         <div class="border"></div>
-        <div class="pane">
-            <p>Content</p>
-        </div>
+        <div class="pane"></div>
     </div>
 </footer>
+
+<script>
+    // Note: This is a Astro-managed script, it will execute once for all instances of this component.
+    const sdcardButton = document.getElementById("uii-sdcard");
+    if (!sdcardButton) {
+        throw new Error("SD Card button not found");
+    }
+    sdcardButton.addEventListener("click", () => {
+        sdcardButton.classList.toggle("active");
+    });
+</script>

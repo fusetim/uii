@@ -36,7 +36,8 @@
 
 #uii-footer #uii-footer-part1,
 #uii-footer #uii-footer-part5 {
-    width: 80px;
+    width: 0px;
+    flex-grow: 1;
 }
 
 #uii-footer #uii-footer-part1 > .border,
@@ -52,54 +53,59 @@
     /*Depends on the pane size - 128x96px as ref*/
     margin-top: 4px;
     height: calc(100% - 4px);
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-#uii-footer #uii-footer-part1 > .pane {
-    flex-direction: row;
-}
-
-#uii-footer #uii-footer-part5 > .pane {
-    flex-direction: row-reverse;
 }
 
 #uii-footer #uii-footer-part2,
 #uii-footer #uii-footer-part4 {
-    width: 48px;
+    width: 128px;
+    height: 96px;
     flex-shrink: 0;
+}
+
+#uii-footer #uii-footer-part2 > .pane,
+#uii-footer #uii-footer-part4 > .pane {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#uii-footer #uii-footer-part2 > .pane {
+    padding-right: 24px;
+}
+
+#uii-footer #uii-footer-part4 > .pane {
+    padding-left: 24px;
 }
 
 #uii-footer #uii-footer-part2 > .border {
     background-color: var(--footer-border-color);
     /*Depends on the pane size - 128x96px as ref*/
-    clip-path: path("M 0 0 C 24 0 24 20 48 20 V 108 H 0 Z");
+    clip-path: path("M 0 0 H 80 C 104 0 104 20 128 20 V 108 H 0 Z");
 }
 
 #uii-footer #uii-footer-part2 > .pane {
     background-color: var(--footer-pane-color);
     /*Depends on the pane size - 128x96px as ref*/
-    clip-path: path("M 0 4 C 24 4 24 24 48 24 V 104 H 0 Z");
+    clip-path: path("M 0 4 H 80 C 101 4 102 24 128 24 V 104 H 0 Z");
     padding-top: 4px;
 }
 
 #uii-footer #uii-footer-part4 > .border {
     background-color: var(--footer-border-color);
     /*Depends on the pane size - 128x96px as ref*/
-    clip-path: path("M 48 0 C 24 0 24 20 0 20 V 108 H 48 Z");
+    clip-path: path("M 128 0 H 48 C 24 0 24 20 0 20 v 88 H 128 Z");
 }
 
 #uii-footer #uii-footer-part4 > .pane {
     background-color: var(--footer-pane-color);
     /*Depends on the pane size - 128x96px as ref*/
-    clip-path: path("M 48 4 C 24 4 24 24 0 24 V 104 H 48 Z");
+    clip-path: path("M 128 4 H 48 C 27 4 26 24 0 24 V 104 H 128 Z");
     padding-top: 4px;
 }
 
 #uii-footer #uii-footer-part3 {
-    flex: 128px 1 1;
+    flex: 128px 1 0;
 }
 
 #uii-footer #uii-footer-part3 > .border {
@@ -130,4 +136,40 @@
     width: 100%;
     height: 100%;
     color: #45667c;
+}
+
+#uii-sdcard {
+    position: absolute;
+    bottom: 16px;
+    right: 8px;
+    z-index: 3;
+
+    --sdcard-color-darker: #787A7A;
+    --sdcard-color-dark: #A1A1A1;
+    --sdcard-color-light: #C3CAD8;
+    --sdcard-color-lighter: #E9EEF8;
+
+    cursor: pointer;
+}
+
+#uii-sdcard:hover {
+    --sdcard-color-darker: #6f7070;
+    --sdcard-color-dark: #919191;
+    --sdcard-color-light: #b7bdc5;
+    --sdcard-color-lighter: #e1e6ed;
+}
+
+#uii-sdcard.active {
+    /*When active, adds a blue tint*/
+    --sdcard-color-darker: #1c67bc;
+    --sdcard-color-dark: #4b90df;
+    --sdcard-color-light: #8fbce9;
+    --sdcard-color-lighter: #c1d8f3;
+}
+
+#uii-sdcard.active:hover {
+    --sdcard-color-darker: #155a9e;
+    --sdcard-color-dark: #3f7ec1;
+    --sdcard-color-light: #7faedc;
+    --sdcard-color-lighter: #b8d0ed;
 }
