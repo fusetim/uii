@@ -13,6 +13,7 @@
     "@astrojs/solid-js": "^5.1.1",
     "@iconify/json": "^2.2.382",
     "astro": "^5.13.7",
+    "cssnano": "^7.1.1",
     "solid-js": "^1.9.9",
     "unplugin-icons": "^22.2.0"
   }

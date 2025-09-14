@@ -7,8 +7,10 @@
     display: flex;
     flex-direction: row;
 
-    --footer-pane-color: #EAF4FA;
-    --footer-border-color: #57C6F0;
+    --footer-pane-color: var(--md-sys-color-secondary-container);
+    --footer-border-color: var(--md-sys-color-primary);
+    --footer-button-color: var(--md-sys-color-primary);
+    --footer-button-text-color: var(--md-sys-color-on-primary);
 }
 
 #uii-footer > div {
@@ -129,13 +131,21 @@
     width: 64px;
     height: 64px;
 
-    background-color: #8FD2FF;
+    background-color: var(--footer-button-color);
+}
+
+.dark #uii-footer .button:hover {
+    filter: brightness(110%);
+}
+
+.light #uii-footer .button:hover {
+    filter: brightness(90%);
 }
 
 #uii-footer .button > svg {
     width: 100%;
     height: 100%;
-    color: #45667c;
+    color: var(--footer-button-text-color);
 }
 
 #uii-sdcard {
@@ -159,17 +169,32 @@
     --sdcard-color-lighter: #e1e6ed;
 }
 
-#uii-sdcard.active {
+.dark #uii-sdcard.active {
     /*When active, adds a blue tint*/
-    --sdcard-color-darker: #1c67bc;
-    --sdcard-color-dark: #4b90df;
-    --sdcard-color-light: #8fbce9;
-    --sdcard-color-lighter: #c1d8f3;
-}
-
-#uii-sdcard.active:hover {
-    --sdcard-color-darker: #155a9e;
+    --sdcard-color-darker: #5facce;
     --sdcard-color-dark: #3f7ec1;
     --sdcard-color-light: #7faedc;
-    --sdcard-color-lighter: #b8d0ed;
+    --sdcard-color-lighter: #c7e0ff;
+}
+
+.dark #uii-sdcard.active:hover {
+    --sdcard-color-darker: #57a6c4;
+    --sdcard-color-dark: #3575b7;
+    --sdcard-color-light: #6f9ed4;
+    --sdcard-color-lighter: #a9c8ec;
+}
+
+.light #uii-sdcard.active {
+    /*When active, adds a blue tint*/
+    --sdcard-color-darker: #106681;
+    --sdcard-color-dark: #3f7ec1;
+    --sdcard-color-light: #7faedc;
+    --sdcard-color-lighter: #c7e0ff;
+}
+
+.light #uii-sdcard.active:hover {
+    --sdcard-color-darker: #0e5c73;
+    --sdcard-color-dark: #3575b7;
+    --sdcard-color-light: #6f9ed4;
+    --sdcard-color-lighter: #a9c8ec;
 }

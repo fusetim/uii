@@ -1,0 +1,19 @@
+---
+import type { ImageMetadata } from "astro";
+import "@styles/UiiChannel.css";
+
+export interface ChannelProps {
+    title: string;
+    imageCover?: ImageMetadata;
+    link: string;
+};
+
+const props: ChannelProps = Astro.props as ChannelProps;
+---
+
+<a href={props.link} class="uii-channel">
+    {props.imageCover ? (
+        <img src={props.imageCover.src} alt={props.title} loading="lazy" />
+    ) : null}
+    <h2>{props.title}</h2>
+</a>

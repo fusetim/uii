@@ -2,6 +2,7 @@
 import BasePage from "@layouts/BasePage.astro";
 import type { BaseHeadProps } from "@layouts/BaseHead.astro";
 import UiiFooter from "@components/UiiFooter/UiiFooter.astro";
+import UiiChannelGrid from "@components/UiiChannel/UiiChannelGrid.astro";
 
 const head: BaseHeadProps = {
 	title: "FuseTim's Blog",
@@ -12,9 +13,36 @@ const head: BaseHeadProps = {
 ---
 
 <BasePage {head}>
-	<main>
-		Hello
-	</main>
-	<UiiFooter>
-	</UiiFooter>
+	<div id="uii-menu">
+		<main>
+			<UiiChannelGrid>
+			</UiiChannelGrid>
+			<hr id="uii-footer-separator"></hr>
+		</main>
+		<UiiFooter>
+		</UiiFooter>
+	</div>
 </BasePage>
+
+<style is:global>
+	#uii-menu {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: scroll;
+	}
+
+	main {
+		max-width: 88rem;
+		margin: 0 auto;
+		padding: 1rem 0.5rem;
+	}
+
+	#uii-footer-separator {
+		border: none;
+		height: 96px;
+		width: 100%;
+		background-color: transparent;
+		margin: 0;
+	}
+</style>
