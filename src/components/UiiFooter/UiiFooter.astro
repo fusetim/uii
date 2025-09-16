@@ -4,6 +4,9 @@ import UiiClock from "./UiiClock.astro";
 
 import MdiHistory from "~icons/mdi/history.astro";
 import MdiGithub from "~icons/mdi/github.astro";
+import MdiSun from "~icons/mdi/white-balance-sunny.astro";
+import MdiNight from "~icons/mdi/weather-night.astro";
+import MdiThemeAuto from "~icons/mdi/brightness-auto.astro";
 const BASE_URL = import.meta.env.BASE_URL;
 
 export interface FooterProps {
@@ -25,7 +28,7 @@ const returnHomeLink = props.returnHomeLink ?? false;
             <a class="button" href={returnHomeLink ? BASE_URL : BASE_URL + "changelog"} title="Changelogs">
                 <MdiHistory />
             </a>
-            <button id="uii-sdcard" title="SD Card (just for fun!)">
+            <button id="uii-sdcard" class="active" title="SD Card (just for fun!)">
                 <svg
                     width="23"
                     height="30"
@@ -80,6 +83,11 @@ const returnHomeLink = props.returnHomeLink ?? false;
     <div id="uii-footer-part4">
         <div class="border"></div>
         <div class="pane">
+            <button id="uii-theme-switch" class="auto" title="Switch Theme">
+                <MdiSun class="icon-light" />
+                <MdiNight class="icon-dark" />
+                <MdiThemeAuto class="icon-auto" />
+            </button>
             <a class="button" href="https://github.com/fusetim/uii">
                 <MdiGithub />
             </a>
@@ -93,11 +101,55 @@ const returnHomeLink = props.returnHomeLink ?? false;
 
 <script>
     // Note: This is a Astro-managed script, it will execute once for all instances of this component.
+    // On load, set the theme based on localStorage
+    const savedTheme = localStorage.getItem("uii-theme");
+    const preferredColorScheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const themeSwitchButton = document.getElementById("uii-theme-switch");
+    if (!themeSwitchButton) {
+        throw new Error("theme404");
+    }
+
+    if (savedTheme) {
+        document.body.classList.remove("light", "dark");
+        themeSwitchButton.classList.remove("auto");
+        document.body.classList.add(savedTheme);
+    } else {
+        document.body.classList.add(preferredColorScheme());
+    }
+
+    // Handle the SD Card button toggle
     const sdcardButton = document.getElementById("uii-sdcard");
     if (!sdcardButton) {
-        throw new Error("SD Card button not found");
+        throw new Error("sdcard 404");
     }
     sdcardButton.addEventListener("click", () => {
         sdcardButton.classList.toggle("active");
+    });
+
+    // Handle the Theme Switch button toggle
+    themeSwitchButton.addEventListener("click", () => {
+        const body = document.body;
+        const curTheme = localStorage.getItem("uii-theme");
+        const isAuto = themeSwitchButton.classList.contains("auto");
+        // Switch to the next theme: Auto -> Light -> Dark -> Auto
+        if (isAuto) {
+            // Switch to Light
+            body.classList.remove("dark");
+            body.classList.add("light");
+            themeSwitchButton.classList.remove("auto");
+            localStorage.setItem("uii-theme", "light");
+        } else if (curTheme === "light") {
+            // Switch to Dark
+            body.classList.remove("light");
+            body.classList.add("dark");
+            localStorage.setItem("uii-theme", "dark");
+        } else {
+            // Switch to Auto
+            body.classList.remove("light", "dark");
+            themeSwitchButton.classList.add("auto");
+            localStorage.removeItem("uii-theme");
+            // Apply the preferred color scheme
+            body.classList.add(preferredColorScheme());
+        }
     });
 </script>

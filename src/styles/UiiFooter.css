@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: row;
 
-    --footer-pane-color: var(--md-sys-color-secondary-container);
+    --footer-pane-color: var(--md-sys-color-surface-container);
     --footer-border-color: var(--md-sys-color-primary);
     --footer-button-color: var(--md-sys-color-primary);
     --footer-button-text-color: var(--md-sys-color-on-primary);
@@ -171,30 +171,70 @@
 
 .dark #uii-sdcard.active {
     /*When active, adds a blue tint*/
-    --sdcard-color-darker: #5facce;
-    --sdcard-color-dark: #3f7ec1;
-    --sdcard-color-light: #7faedc;
-    --sdcard-color-lighter: #c7e0ff;
+    --sdcard-color-darker: oklch(0.35 0.0826 227.71);
+    --sdcard-color-dark: oklch(0.45 0.0826 227.71);
+    --sdcard-color-light: oklch(0.78 0.0826 227.71);
+    --sdcard-color-lighter: oklch(0.8222 0.0826 227.71);
 }
 
 .dark #uii-sdcard.active:hover {
-    --sdcard-color-darker: #57a6c4;
-    --sdcard-color-dark: #3575b7;
-    --sdcard-color-light: #6f9ed4;
-    --sdcard-color-lighter: #a9c8ec;
+    filter: brightness(120%);
 }
 
 .light #uii-sdcard.active {
     /*When active, adds a blue tint*/
-    --sdcard-color-darker: #106681;
-    --sdcard-color-dark: #3f7ec1;
-    --sdcard-color-light: #7faedc;
-    --sdcard-color-lighter: #c7e0ff;
+    --sdcard-color-darker: oklch(0.7 0.0858 225.48);
+    --sdcard-color-dark: oklch(0.4762 0.0858 225.48);
+    --sdcard-color-light: oklch(0.4762 0.0858 225.48);
+    --sdcard-color-lighter: oklch(0.82 0.0858 225.48);
 }
 
 .light #uii-sdcard.active:hover {
-    --sdcard-color-darker: #0e5c73;
-    --sdcard-color-dark: #3575b7;
-    --sdcard-color-light: #6f9ed4;
-    --sdcard-color-lighter: #a9c8ec;
+    filter: brightness(80%);
+}
+
+
+#uii-theme-switch {
+    position: absolute;
+    bottom: 16px;
+    left: 8px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#uii-theme-switch > svg {
+    display: none;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    color: var(--footer-button-color);
+    background-color: transparent;
+    border-radius: 999px;
+    transition: color, background-color 0.2s;
+}
+
+#uii-theme-switch:hover > svg {
+    background-color: var(--footer-button-color);
+    color: var(--footer-button-text-color);
+}
+
+/* Show the next theme icon (Auto -> Light -> Dark -> Auto)*/
+.light #uii-theme-switch.auto .icon-dark,
+.light #uii-theme-switch.auto .icon-auto,
+.dark #uii-theme-switch.auto .icon-dark,
+.dark #uii-theme-switch.auto .icon-auto {
+        display: none;
+}
+
+.light #uii-theme-switch.auto .icon-light,
+.dark #uii-theme-switch.auto .icon-light {
+        display: inline;
+}
+
+.light #uii-theme-switch .icon-dark {
+        display: inline;
+}
+
+.dark #uii-theme-switch .icon-auto {
+        display: inline;
 }

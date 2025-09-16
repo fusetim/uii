@@ -1,4 +1,4 @@
-.dark {
+body, body.dark {
   --md-sys-color-primary: rgb(138 208 239);
   --md-sys-color-surface-tint: rgb(138 208 239);
   --md-sys-color-on-primary: rgb(0 53 69);
