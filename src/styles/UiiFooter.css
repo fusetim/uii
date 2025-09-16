@@ -238,3 +238,17 @@
 .dark #uii-theme-switch .icon-auto {
         display: inline;
 }
+
+/* "Animate" the whoami terminal cursor */
+.whoami-cursor {
+    animation: blink 1.5s step-start 0s infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    50.01%, 100% {
+        opacity: 0;
+    }
+}
