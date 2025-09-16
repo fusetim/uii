@@ -1,0 +1,136 @@
+.content {
+    margin: 0 auto;
+}
+
+.content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content h4, 
+.content h5, 
+.content h6 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.content p {
+    margin: 0.5rem 0;
+    font-weight: 400;
+}
+
+.content strong {
+    font-weight: 600;
+}
+
+.content a {
+    color: var(--md-sys-color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.content a:hover {
+    color: var(--md-sys-color-tertiary);
+}
+
+.content ul,
+.content ol {
+    font-weight: 400;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem
+}
+
+.content p + ul,
+.content p + ol {
+    margin-top: -0.5rem;
+}
+
+.content li {
+    list-style-type: disc;
+}
+
+.content li::marker {
+    color: var(--md-sys-color-primary);
+    font-weight: 500;
+}
+
+.content ol > li {
+    list-style-type: decimal;
+}
+
+.content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .content table {
+        font-size: 0.7rem;
+    }
+}
+
+.content th {
+    background-color: var(--md-sys-color-primary-container);
+    border: 1px solid var(--md-sys-color-on-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    padding: 0.5rem;
+}
+
+.content td {
+    border: 1px solid var(--md-sys-color-on-surface);
+    padding: 0.5rem;
+}
+
+.content address {
+    font-style: normal;
+    margin: 1rem;
+    border: 1px solid var(--md-sys-color-on-primary);
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.content .footnotes {
+    font-size: 0.93rem;
+    border: 1px solid var(--md-sys-color-on-surface-variant);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 0 1rem;
+}
+
+.content #footnote-label {
+    margin-top: 1rem;
+}
+
+.content img {
+    border-radius: 0.5rem;
+    width: auto;
+    height: auto;
+    max-height: calc(min(60vh, 300px));
+}
+
+.content pre.astro-code {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}

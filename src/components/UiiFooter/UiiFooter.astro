@@ -123,7 +123,7 @@ const returnHomeLink = props.returnHomeLink ?? false;
     <div id="uii-footer-part4">
         <div class="border"></div>
         <div class="pane">
-            <button id="uii-theme-switch" class="auto" title="Switch Theme">
+            <button id="uii-theme-switch" title="Switch Theme">
                 <MdiSun class="icon-light" />
                 <MdiNight class="icon-dark" />
                 <MdiThemeAuto class="icon-auto" />
@@ -142,22 +142,16 @@ const returnHomeLink = props.returnHomeLink ?? false;
 <script>
     // Note: This is a Astro-managed script, it will execute once for all instances of this component.
     // On load, set the theme based on localStorage
-    const savedTheme = localStorage.getItem("uii-theme");
-    const preferredColorScheme = () =>
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+    const preferredColorScheme = () => window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
     const themeSwitchButton = document.getElementById("uii-theme-switch");
     if (!themeSwitchButton) {
         throw new Error("theme404");
     }
-
-    if (savedTheme) {
-        document.body.classList.remove("light", "dark");
-        themeSwitchButton.classList.remove("auto");
-        document.body.classList.add(savedTheme);
-    } else {
-        document.body.classList.add(preferredColorScheme());
+    const savedTheme = localStorage.getItem("uii-theme");
+    if (!savedTheme) {
+        themeSwitchButton.classList.add("auto");
     }
 
     // Handle the SD Card button toggle

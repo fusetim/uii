@@ -57,4 +57,21 @@ const coverImage = props.coverImage
     <meta property="og:type" content="website" />
     <meta property="og:url" content={`${Astro.site}${Astro.url.pathname}`} />
     {coverImage && <meta property="og:image" content={coverImage} />}
+
+    <!-- Theme Support-->
+    <script is:inline>
+        const onLoad = () => {
+            const savedTheme = localStorage.getItem("uii-theme");
+            const preferredColorScheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
+            if (savedTheme) {
+                document.body.classList.remove("light", "dark");
+                document.body.classList.add(savedTheme);
+            } else {
+                document.body.classList.add(preferredColorScheme);
+            }
+        };
+        document.addEventListener("DOMContentLoaded", onLoad);
+    </script>
 </head>
