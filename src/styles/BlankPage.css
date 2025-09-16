@@ -4,15 +4,13 @@ body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100dvh;
+    overflow-x: hidden;
 }
 
 body {
-    position: relative;
     font-family: "Inter", sans-serif;
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
-    overflow: hidden;
 
     view-transition-name: blankpage-body;
 }
