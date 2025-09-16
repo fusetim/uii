@@ -10,15 +10,15 @@ import "@styles/BlankPage.css";
 
 export interface BlankPageProps {
     head: BlankHeadProps;
-};
+}
 
 const props: BlankPageProps = Astro.props as BlankPageProps;
 ---
 
 <!doctype html>
 <html lang="en">
-    <BlankHead {...props.head}></BlankHead>
+    <BlankHead {...props.head} />
     <body>
-        <slot/>
+        <slot />
     </body>
 </html>

@@ -15,14 +15,14 @@
     view-transition-name: uii-footer;
 }
 
-#uii-footer > div {
+#uii-footer>div {
     height: 96px;
     position: relative;
     z-index: 0;
 }
 
-#uii-footer > div > .pane,
-#uii-footer > div > .border {
+#uii-footer>div>.pane,
+#uii-footer>div>.border {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,11 +30,11 @@
     height: 100%;
 }
 
-#uii-footer > div > .border {
+#uii-footer>div>.border {
     z-index: 1;
 }
 
-#uii-footer > div > .pane {
+#uii-footer>div>.pane {
     z-index: 2;
 }
 
@@ -44,15 +44,15 @@
     flex-grow: 1;
 }
 
-#uii-footer #uii-footer-part1 > .border,
-#uii-footer #uii-footer-part5 > .border {
+#uii-footer #uii-footer-part1>.border,
+#uii-footer #uii-footer-part5>.border {
     background-color: var(--footer-border-color);
     /* This part must resize, therfore we cant use CSS path */
     height: 4px;
 }
 
-#uii-footer #uii-footer-part1 > .pane,
-#uii-footer #uii-footer-part5 > .pane {
+#uii-footer #uii-footer-part1>.pane,
+#uii-footer #uii-footer-part5>.pane {
     background-color: var(--footer-pane-color);
     /*Depends on the pane size - 128x96px as ref*/
     margin-top: 4px;
@@ -66,42 +66,42 @@
     flex-shrink: 0;
 }
 
-#uii-footer #uii-footer-part2 > .pane,
-#uii-footer #uii-footer-part4 > .pane {
+#uii-footer #uii-footer-part2>.pane,
+#uii-footer #uii-footer-part4>.pane {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 }
 
-#uii-footer #uii-footer-part2 > .pane {
+#uii-footer #uii-footer-part2>.pane {
     padding-right: 24px;
 }
 
-#uii-footer #uii-footer-part4 > .pane {
+#uii-footer #uii-footer-part4>.pane {
     padding-left: 24px;
 }
 
-#uii-footer #uii-footer-part2 > .border {
+#uii-footer #uii-footer-part2>.border {
     background-color: var(--footer-border-color);
     /*Depends on the pane size - 128x96px as ref*/
     clip-path: path("M 0 0 H 80 C 104 0 104 20 128 20 V 108 H 0 Z");
 }
 
-#uii-footer #uii-footer-part2 > .pane {
+#uii-footer #uii-footer-part2>.pane {
     background-color: var(--footer-pane-color);
     /*Depends on the pane size - 128x96px as ref*/
     clip-path: path("M 0 4 H 80 C 101 4 102 24 128 24 V 104 H 0 Z");
     padding-top: 4px;
 }
 
-#uii-footer #uii-footer-part4 > .border {
+#uii-footer #uii-footer-part4>.border {
     background-color: var(--footer-border-color);
     /*Depends on the pane size - 128x96px as ref*/
     clip-path: path("M 128 0 H 48 C 24 0 24 20 0 20 v 88 H 128 Z");
 }
 
-#uii-footer #uii-footer-part4 > .pane {
+#uii-footer #uii-footer-part4>.pane {
     background-color: var(--footer-pane-color);
     /*Depends on the pane size - 128x96px as ref*/
     clip-path: path("M 128 4 H 48 C 27 4 26 24 0 24 V 104 H 128 Z");
@@ -112,14 +112,14 @@
     flex: 128px 1 0;
 }
 
-#uii-footer #uii-footer-part3 > .border {
+#uii-footer #uii-footer-part3>.border {
     background-color: var(--footer-border-color);
     /* This part must resize, therfore we cant use CSS path */
     margin-top: 20px;
     height: 4px;
 }
 
-#uii-footer #uii-footer-part3 > .pane {
+#uii-footer #uii-footer-part3>.pane {
     background-color: var(--footer-pane-color);
     /* This part must resize, therfore we cant use CSS path */
     margin-top: 24px;
@@ -144,7 +144,7 @@
     filter: brightness(90%);
 }
 
-#uii-footer .button > svg {
+#uii-footer .button>svg {
     width: 100%;
     height: 100%;
     color: var(--footer-button-text-color);
@@ -197,7 +197,7 @@
     cursor: pointer;
 }
 
-#uii-theme-switch > svg {
+#uii-theme-switch>svg {
     display: none;
     width: 32px;
     height: 32px;
@@ -208,7 +208,7 @@
     transition: color, background-color 0.2s;
 }
 
-#uii-theme-switch:hover > svg {
+#uii-theme-switch:hover>svg {
     background-color: var(--footer-button-color);
     color: var(--footer-button-text-color);
 }
@@ -218,20 +218,20 @@
 .light #uii-theme-switch.auto .icon-auto,
 .dark #uii-theme-switch.auto .icon-dark,
 .dark #uii-theme-switch.auto .icon-auto {
-        display: none;
+    display: none;
 }
 
 .light #uii-theme-switch.auto .icon-light,
 .dark #uii-theme-switch.auto .icon-light {
-        display: inline;
+    display: inline;
 }
 
 .light #uii-theme-switch .icon-dark {
-        display: inline;
+    display: inline;
 }
 
 .dark #uii-theme-switch .icon-auto {
-        display: inline;
+    display: inline;
 }
 
 /* "Animate" the whoami terminal cursor */
@@ -240,10 +240,14 @@
 }
 
 @keyframes blink {
-    0%, 50% {
+
+    0%,
+    50% {
         opacity: 1;
     }
-    50.01%, 100% {
+
+    50.01%,
+    100% {
         opacity: 0;
     }
 }

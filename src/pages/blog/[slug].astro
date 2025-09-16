@@ -1,40 +1,40 @@
 ---
-import BasePage from '@layouts/BasePage.astro';
-import type { BlankHeadProps } from '@layouts/BlankHead.astro';
-import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
+import BasePage from "@layouts/BasePage.astro";
+import type { BlankHeadProps } from "@layouts/BlankHead.astro";
+import { getEntry, getCollection, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
 
 import "@styles/BlogArticle.css";
 import placeholderTheSecret from "@assets/placeholders/the_secret.jpeg";
-import { render } from 'astro:content';
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post: CollectionEntry<'blog'>) => ({
+  const posts = await getCollection("blog");
+  return posts.map((post: CollectionEntry<"blog">) => ({
     params: { slug: post.data.slug },
     props: { post },
   }));
 }
 
 export interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<"blog">;
 }
 
 const props = Astro.props as Props;
 
-const head : BlankHeadProps = {
-    title: props.post.data.title,
-    description: props.post.data.description,
-    coverImage: undefined,
-    blockRenders: ["#article-cover"],
+const head: BlankHeadProps = {
+  title: props.post.data.title,
+  description: props.post.data.description,
+  coverImage: undefined,
+  blockRenders: ["#article-cover"],
 };
 
-const post = await getEntry('blog', props.post.id);
+const post = await getEntry("blog", props.post.id);
 if (!post) {
   throw new Error(`Post not found: ${props.post.id}`);
 }
 
-const {Content} = await render(post);
+const { Content } = await render(post);
 ---
 
 <BasePage {head}>
@@ -45,8 +45,8 @@ const {Content} = await render(post);
         src={placeholderTheSecret}
         alt={`Cover image for ${post.data.title}`}
         widths={[384, 512, 768, 1024]}
-        sizes="(max-width: 896px) 100vw, 1024px">
-      </Image>
+        sizes="(max-width: 896px) 100vw, 1024px"
+      />
       <div class="info">
         <h1>{post.data.title}</h1>
         <time datetime={post.data.pubDate.toISOString()}>31 août 2025</time>

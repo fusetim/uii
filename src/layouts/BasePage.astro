@@ -4,9 +4,9 @@ import BlankPage, { type BlankPageProps } from "./BlankPage.astro";
 import type { BlankHeadProps } from "./BlankHead.astro";
 
 export interface BasePageProps {
-    head: BlankHeadProps;
-    footerReturnHome?: boolean;
-};
+	head: BlankHeadProps;
+	footerReturnHome?: boolean;
+}
 
 const props: BasePageProps = Astro.props as BasePageProps;
 const footerReturnHome = props.footerReturnHome ?? true;
@@ -15,11 +15,11 @@ const footerReturnHome = props.footerReturnHome ?? true;
 <BlankPage head={props.head}>
 	<div id="uii-menu">
 		<main>
-			<slot></slot>
-			<hr id="uii-footer-separator"></hr>
+			<slot />
+			<hr id="uii-footer-separator" />
 		</main>
-		<UiiFooter returnHomeLink={footerReturnHome} />
 	</div>
+	<UiiFooter returnHomeLink={footerReturnHome} />
 </BlankPage>
 
 <style is:global>

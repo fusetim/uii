@@ -7,21 +7,23 @@ export interface ChannelProps {
     title: string;
     imageCover?: ImageMetadata;
     link: string;
-};
+}
 
 const props: ChannelProps = Astro.props as ChannelProps;
 ---
 
 <a href={props.link} class="uii-channel">
-    {props.imageCover ? (
-        <Image
-            src={props.imageCover}
-            alt={props.title}
-            class="uii-channel-cover"
-            loading="eager"
-            widths={[256, 384, 512, 768]}
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1408px) 33vw, 512px"
-        />
-    ) : null}
+    {
+        props.imageCover ? (
+            <Image
+                src={props.imageCover}
+                alt={props.title}
+                class="uii-channel-cover"
+                loading="eager"
+                widths={[256, 384, 512, 768]}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1408px) 33vw, 512px"
+            />
+        ) : null
+    }
     <h2>{props.title}</h2>
 </a>
