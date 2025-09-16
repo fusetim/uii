@@ -1,22 +1,45 @@
 ---
-import BaseHead, { type BaseHeadProps } from "./BaseHead.astro";
-import "@styles/normalize.css";
-import "@styles/fonts.css";
-import "@styles/theme_dark.css";
-import "@styles/theme_light.css";
-import "@styles/BasePage.css";
+import UiiFooter from "@components/UiiFooter/UiiFooter.astro";
+import BlankPage, { type BlankPageProps } from "./BlankPage.astro";
+import type { BlankHeadProps } from "./BlankHead.astro";
 
-interface BasePageProps {
-    head: BaseHeadProps;
+export interface BasePageProps {
+    head: BlankHeadProps;
+    footerReturnHome?: boolean;
 };
 
 const props: BasePageProps = Astro.props as BasePageProps;
+const footerReturnHome = props.footerReturnHome ?? true;
 ---
 
-<!doctype html>
-<html lang="en">
-    <BaseHead {...props.head}></BaseHead>
-    <body>
-        <slot/>
-    </body>
-</html>
+<BlankPage head={props.head}>
+	<div id="uii-menu">
+		<main>
+			<slot></slot>
+			<hr id="uii-footer-separator"></hr>
+		</main>
+		<UiiFooter returnHomeLink={footerReturnHome} />
+	</div>
+</BlankPage>
+
+<style is:global>
+	#uii-menu {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		overflow: scroll;
+	}
+
+	main {
+		max-width: 88rem;
+		margin: 0 auto;
+	}
+
+	#uii-footer-separator {
+		border: none;
+		height: 96px;
+		width: 100%;
+		background-color: transparent;
+		margin: 0;
+	}
+</style>

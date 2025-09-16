@@ -16,7 +16,7 @@ body, body.dark {
   --md-sys-color-on-error: rgb(105 0 5);
   --md-sys-color-error-container: rgb(147 0 10);
   --md-sys-color-on-error-container: rgb(255 218 214);
-  --md-sys-color-background: rgb(15 20 23);
+  --md-sys-color-background: rgb(0 0 0);
   --md-sys-color-on-background: rgb(223 227 230);
   --md-sys-color-surface: rgb(15 20 23);
   --md-sys-color-on-surface: rgb(223 227 230);

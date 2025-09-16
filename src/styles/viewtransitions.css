@@ -1,0 +1,20 @@
+@view-transition {
+  navigation: auto;
+}
+
+
+::view-transition-old(blankpage-body) {
+  animation: 0.1s linear both fadeOut;
+}
+
+::view-transition-new(blankpage-body) {
+  animation: 0.1s 0.1s linear both fadeIn;
+}
+
+::view-transition-old(blogpost-cover) {
+  animation: 0.25s linear both growOut;
+}
+
+::view-transition-new(blogpost-cover) {
+  animation: 0.25s linear both growIn;
+}

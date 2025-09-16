@@ -11,4 +11,6 @@ body {
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
     overflow: hidden;
+
+    view-transition-name: blankpage-body;
 }

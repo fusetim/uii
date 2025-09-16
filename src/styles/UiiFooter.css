@@ -11,6 +11,8 @@
     --footer-border-color: var(--md-sys-color-primary);
     --footer-button-color: var(--md-sys-color-primary);
     --footer-button-text-color: var(--md-sys-color-on-primary);
+
+    view-transition-name: uii-footer;
 }
 
 #uii-footer > div {
@@ -162,13 +164,6 @@
     cursor: pointer;
 }
 
-#uii-sdcard:hover {
-    --sdcard-color-darker: #6f7070;
-    --sdcard-color-dark: #919191;
-    --sdcard-color-light: #b7bdc5;
-    --sdcard-color-lighter: #e1e6ed;
-}
-
 .dark #uii-sdcard.active {
     /*When active, adds a blue tint*/
     --sdcard-color-darker: oklch(0.35 0.0826 227.71);
@@ -177,8 +172,8 @@
     --sdcard-color-lighter: oklch(0.8222 0.0826 227.71);
 }
 
-.dark #uii-sdcard.active:hover {
-    filter: brightness(120%);
+.dark #uii-sdcard:hover {
+    filter: brightness(110%);
 }
 
 .light #uii-sdcard.active {
@@ -189,7 +184,7 @@
     --sdcard-color-lighter: oklch(0.82 0.0858 225.48);
 }
 
-.light #uii-sdcard.active:hover {
+.light #uii-sdcard:hover {
     filter: brightness(80%);
 }
 

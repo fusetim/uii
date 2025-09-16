@@ -1,6 +1,7 @@
 ---
 import type { ImageMetadata } from "astro";
 import "@styles/UiiChannel.css";
+import { Image } from "astro:assets";
 
 export interface ChannelProps {
     title: string;
@@ -13,7 +14,14 @@ const props: ChannelProps = Astro.props as ChannelProps;
 
 <a href={props.link} class="uii-channel">
     {props.imageCover ? (
-        <img src={props.imageCover.src} alt={props.title} loading="lazy" />
+        <Image
+            src={props.imageCover}
+            alt={props.title}
+            class="uii-channel-cover"
+            loading="eager"
+            widths={[256, 384, 512, 768]}
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1408px) 33vw, 512px"
+        />
     ) : null}
     <h2>{props.title}</h2>
 </a>

@@ -1,0 +1,24 @@
+---
+import BlankHead, { type BlankHeadProps } from "./BlankHead.astro";
+import "@styles/normalize.css";
+import "@styles/fonts.css";
+import "@styles/theme_dark.css";
+import "@styles/theme_light.css";
+import "@styles/animations.css";
+import "@styles/viewtransitions.css";
+import "@styles/BlankPage.css";
+
+export interface BlankPageProps {
+    head: BlankHeadProps;
+};
+
+const props: BlankPageProps = Astro.props as BlankPageProps;
+---
+
+<!doctype html>
+<html lang="en">
+    <BlankHead {...props.head}></BlankHead>
+    <body>
+        <slot/>
+    </body>
+</html>
