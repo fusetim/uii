@@ -23,7 +23,6 @@
     width: 100%;
     height: auto;
     display: block;
-    view-transition-name: blogpost-cover;
 }
 
 .blog-article header>.info {

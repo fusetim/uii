@@ -5,6 +5,7 @@ body {
     padding: 0;
     width: 100vw;
     overflow-x: hidden;
+    view-transition-name: none;
 }
 
 body {
@@ -12,5 +13,5 @@ body {
     background-color: var(--md-sys-color-background);
     color: var(--md-sys-color-on-background);
 
-    view-transition-name: blankpage-body;
+    view-transition-name: blankPageBody;
 }
